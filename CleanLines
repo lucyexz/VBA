@@ -1,0 +1,21 @@
+//Code for clear a range in Excel
+//Código para limpar um intervalo no Excel
+
+Sub Clear()
+
+ Dim resp As Integer
+    
+    resp = MsgBox("APAGAR OS DADOS?", vbYesNo + vbQuestion, "LIMPAR PLANILHA") //Mensagem de confirmação
+    
+    If resp = vbYes Then
+
+    Range("B2:F2").Select //Intervalo selecionado, é possível colocar qualquer coluna desejada, o 2 inibe que a seleção apague o cabeçalho
+    Range(Selection, Selection.End(xlDown)).Select
+    Selection.ClearContents
+    Range("B2").Select
+    
+    Else
+
+    End If
+    
+   End Sub
