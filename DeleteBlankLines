@@ -1,0 +1,22 @@
+
+//Código que define um intervalo entre a segunda linha da planilha e a última linha digitada, e apaga a linha em branco nesse intervalo
+
+Sub DeleteBlank()
+
+Dim ultlinha As Long
+Dim c As Long
+Dim intervalo As Range
+Dim i As Long
+
+ultlinha = Sheets("Planilha").Range("A1048576").End(xlUp).Row
+c = Sheets("Planilha").UsedRange.Rows(2).Row
+
+Set intervalo = Sheets("Planilha").Range("A" & c & ":F" & ultlinha)
+
+For i = intervalo.Rows.Count To 1 Step -1
+
+If WorksheetFunction.CountA(intervalo.Rows(i)) = 0 Then
+intervalo.Rows(i).Delete
+End If
+
+Next i
