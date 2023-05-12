@@ -1,0 +1,19 @@
+Sub Insert_Data()
+
+//The code insert the actually data in "D" column, using the number of completly lines in column "B" 
+//O código insere a data atual na coluna D, usando o número de linhas completas na coluna "B"
+
+Dim lastrow As Long
+
+lastrow = Range("B" & Rows.Count).End(xlUp).Row 
+
+    If Range("B3") = "" Then
+    Range("D2").Select
+    ActiveCell.FormulaR1C1 = Now() //If inicial serve para não copiar as configurações do cabeçalho
+    Else
+    Range("D2").Select
+    ActiveCell.FormulaR1C1 = Now()
+    Range("D2:D" & ultlinha).FillDown
+    End If
+
+End Sub
